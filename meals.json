@@ -1,35 +1,35 @@
 [
 	{
 		"name": "Chicken",
-		"id": 1,
+		"id": "1",
 		"price": 15.95,
 		"gluten": true,
 		"sauce": "cream based"
 	},
 	{
 		"name": "Lamb",
-		"id": 2,
+		"id": "2",
 		"price": 18.95,
 		"gluten": false,
 		"sauce": "jus"
 	},
 	{
 		"name": "Wellington",
-		"id": 3,
+		"id": "3",
 		"price": 27.49,
 		"gluten": true,
 		"sauce": "gravy"
 	},
 	{
 		"name": "Steak",
-		"id": 4,
+		"id": "4",
 		"price": 23.95,
 		"gluten": false,
 		"sauce": "cream based"
 	},
 	{
 		"name": "Salad",
-		"id": 5,
+		"id": "5",
 		"price": 12.95,
 		"gluten": false,
 		"sauce": "olive oil based"
