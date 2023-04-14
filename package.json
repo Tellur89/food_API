@@ -1,25 +1,29 @@
 {
-	"name": "food_api",
+	"name": "project_api",
 	"version": "1.0.0",
-	"description": "API for restaurants with dishes on the menu",
+	"description": "- Needs styling",
 	"main": "index.js",
 	"scripts": {
 		"start": "node index.js",
 		"dev": "nodemon index.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"author": "TB",
-	"license": "ISC",
-	"devDependencies": {
-		"nodemon": "^2.0.22"
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Tellur89/food_API.git"
 	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Tellur89/food_API/issues"
+	},
+	"homepage": "https://github.com/Tellur89/food_API#readme",
 	"dependencies": {
 		"cors": "^2.8.5",
 		"express": "^4.18.2",
-		"heroku": "^7.7.8",
+		"heroku": "^8.0.4",
+		"node": "^19.8.1",
+		"nodemon": "^2.0.22",
 		"path": "^0.12.7"
-	},
-	"engines": {
-		"node": "18.15.0"
 	}
 }
