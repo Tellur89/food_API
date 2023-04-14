@@ -5,7 +5,8 @@ const meals = require('./meals.json');
 const { capitalise } = require('./helpers');
 
 const app = express();
-const index = path.join(__dirname, './index.html');
+app.use(express.static(path.join(__dirname, 'public')));
+// const index = path.join(__dirname, './index.html');
 
 // MIDDLEWARE
 app.use(cors());
@@ -14,7 +15,7 @@ app.use(express.json());
 
 // GET
 app.get('/', (req, res) => {
-	res.sendFile(index);
+	res.sendFile(__dirname + '/index.html');
 });
 
 app.get('/meals', (req, res) => {
