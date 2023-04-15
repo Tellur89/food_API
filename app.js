@@ -56,7 +56,7 @@ app.post('/meals', (req, res) => {
 	} else {
 		maxId += 1;
 		const newMeal = req.body;
-		newMeal.id = maxId;
+		newMeal.id = maxId.toString();
 		meals.push(newMeal);
 		res.status(201).send(newMeal);
 	}
@@ -65,16 +65,10 @@ app.post('/meals', (req, res) => {
 app.post('/add', (req, res) => {
 	const ids = meals.map((el) => el.id);
 	let maxId = Math.max(...ids);
-	// maxId += 1;
-	const newMeal = new NewMeal(req.body.mealName, (maxId += 1), req.body.mealPrice, req.body.mealSauce, req.body.mealImg, req.body.mealGluten);
+	const newMealId = (maxId += 1).toString();
+	const newMeal = new NewMeal(req.body.mealName, newMealId, req.body.mealPrice, req.body.mealSauce, req.body.mealImg, req.body.mealGluten);
 	meals.push(newMeal);
 	res.status(201).send(newMeal);
-
-	// newMeal.save(function (err) {
-	// 	if (!err) {
-	// 		res.redirect('/');
-	// 	}
-	// });
 });
 // -----
 
