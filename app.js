@@ -28,12 +28,9 @@ app.use(express.json());
 // -----
 
 // GET
-// app.get('/', (req, res) => {
-// 	res.sendFile(__dirname + '/index.html');
-// });
-// app.get('/', (req, res) => {
-// 	res.sendFile(__dirname + '/addMeal.html');
-// });
+app.get('/', (req, res) => {
+	res.sendFile(__dirname + '/index.html');
+});
 
 app.get('/meals', (req, res) => {
 	res.send(meals);
