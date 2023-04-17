@@ -1,9 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const { writeFile, readFile } = require('node:fs');
+const bodyParser = require('body-parser');
 const meals = require('./meals.json');
 const { capitalise } = require('./helpers');
-const bodyParser = require('body-parser');
+// const NewMeal = require('./src/JS/newMeal');
 
 class NewMeal {
 	constructor(name, id, price, sauce, img, gluten) {
@@ -19,7 +21,7 @@ class NewMeal {
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'src')));
 // const index = path.join(__dirname, './index.html');
 
 // MIDDLEWARE
@@ -63,11 +65,28 @@ app.post('/meals', (req, res) => {
 });
 
 app.post('/add', (req, res) => {
-	const ids = meals.map((el) => el.id);
+	const ids = meals.map((el) => Number(el.id));
 	let maxId = Math.max(...ids);
 	const newMealId = (maxId += 1).toString();
 	const newMeal = new NewMeal(req.body.mealName, newMealId, req.body.mealPrice, req.body.mealSauce, req.body.mealImg, req.body.mealGluten);
-	meals.push(newMeal);
+
+	readFile('./meals.json', (err) => {
+		if (err) {
+			console.error(err);
+		}
+
+		if (req.method == 'POST') {
+			meals.push(newMeal);
+		}
+
+		writeFile('./meals.json', JSON.stringify(meals), () => {
+			if (err) {
+				console.error(err);
+
+				res.end();
+			}
+		});
+	});
 	res.status(201).send(newMeal);
 });
 // -----
