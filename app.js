@@ -2,10 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const { writeFile, readFile } = require('node:fs');
-const bodyParser = require('body-parser');
 const meals = require('./meals.json');
-const { capitalise } = require('./helpers');
-// const NewMeal = require('./src/JS/newMeal');
 
 class NewMeal {
 	constructor(name, id, price, sauce, img, gluten) {
@@ -20,9 +17,8 @@ class NewMeal {
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'src')));
-// const index = path.join(__dirname, './index.html');
 
 // MIDDLEWARE
 app.use(cors());
