@@ -1,4 +1,4 @@
-const meals = require('../data/index');
+const meals = require('../data');
 
 class Meal {
 	constructor(data) {
@@ -14,10 +14,10 @@ class Meal {
 		return meals.map((mealData) => new Meal(mealData));
 	}
 
-	static findByName(mealName) {
+	static async findByName(mealName) {
 		try {
-			// console.log(meals);
-			const meal = meals.find((el) => el.name === mealName);
+			const meal = meals.find((el) => el.name.toLowerCase() === mealName);
+			console.log(meal);
 			if (meal) {
 				return meal;
 			} else {

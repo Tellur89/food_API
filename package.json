@@ -4,7 +4,7 @@
 	"description": "- Needs styling",
 	"main": "index.js",
 	"scripts": {
-		"start-server": "node index.js",
+		"dev": "nodemon index.js",
 		"client-server": "cd ./client && npm start && cd ../server && nodemon -L index.js"
 	},
 	"repository": {
