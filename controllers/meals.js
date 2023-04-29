@@ -8,7 +8,7 @@ async function index(req, res) {
 		res.status(500).send({ error: 'Server error' });
 	}
 }
-// TODO: FIX, ADD ERROR
+
 const show = async (req, res) => {
 	try {
 		const mealName = req.params.name;
@@ -39,13 +39,14 @@ async function update(req, res) {
 	}
 }
 
-async function destroy() {
-	const idx = req.params.id;
+function destroy(req, res) {
+	const idx = parseInt(req.params.id);
+	console.log(idx);
 	try {
 		const meals = Meal.destroy(idx);
 		res.send(meals);
 	} catch (err) {
-		res.status(404).send({ error: 'Meal not found' });
+		res.status(404).send({ error: err });
 	}
 }
 

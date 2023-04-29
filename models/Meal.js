@@ -52,20 +52,12 @@ class Meal {
 		}
 	}
 
-	// 	try {
-	// 		const updatedMeal = { ...req.body, id: meal.id };
-	// 		const idIndex = meals.findIndex((el) => el.id === meal.id);
-	// 		meals[idIndex] = updatedMeal;
-	// 		res.send(updatedMeal);
-	// 	} catch (err) {
-	// 		res.status(400).send('Could not update it.');
-	// 	}
-
 	static destroy(data) {
-		const meal = meals.find((el) => el.id === this.id);
-
+		const meal = meals.find((el) => el.id === data);
+		console.log(meal);
 		if (meal) {
-			mealIdx = meals.indexOf(meal);
+			const mealIdx = meals.indexOf(meal);
+			console.log(mealIdx);
 			meals.splice(mealIdx, 1);
 		} else {
 			throw new Error('Meal not found');
